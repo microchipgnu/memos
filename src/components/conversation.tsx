@@ -126,11 +126,14 @@ export function Conversation() {
     <Microphone
       updateCount={memoCount}
       statusText={conversation.status === 'connected' ? 
-        (conversation.isSpeaking ? 'RECORDING' : 'LISTENING') : 
+        (conversation.isSpeaking ? 'PROCESSING' : 'LISTENING...') : 
         'READY TO LISTEN'
       }
       onSpeakClick={conversation.status === 'connected' ? stopConversation : startConversation}
       buttonText={conversation.status === 'connected' ? 'STOP' : 'START'}
+
+      conversationStatus={conversation.status}
+      isSpeaking={conversation.isSpeaking}
     />
   );
 }
